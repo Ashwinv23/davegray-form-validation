@@ -108,3 +108,8 @@ button {
 .line {
   display: inline-block;
 }
+
+a,
+a:visited {
+  color: #fff;
+}

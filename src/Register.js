@@ -154,9 +154,13 @@ const Register = () => {
         </p>
 
         <button disabled={validName && validPwd && validMatch ? false : true}>
-          Submit
+          Sign Up
         </button>
       </form>
+      <p>Already registered?</p>
+      <span className="line">
+        <a href="#">Sign In</a>
+      </span>
     </section>
   );
 };
