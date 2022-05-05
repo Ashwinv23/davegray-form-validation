@@ -56,6 +56,7 @@ const Register = () => {
       </p>
       <h1>Register</h1>
       <form>
+        {/* ********** USERNAME ********** */}
         <label htmlFor="username">
           Username:
           <span className={validName ? "valid" : "hide"}>
@@ -91,6 +92,7 @@ const Register = () => {
           Letters, numbers, underscores, hyphens allowed.
         </p>
 
+        {/* ********** PASSWORD ********** */}
         <label htmlFor="password">
           Password:
           <span className={validPwd ? "valid" : "hide"}>
@@ -119,6 +121,35 @@ const Register = () => {
           <br />
           Must include uppercase and lowercase letters, a number and a special
           character.
+          <br />
+        </p>
+
+        {/* ********** CONFIRM PASSWORD ********** */}
+        <label htmlFor="confirm_pwd">
+          Confirm Password:
+          <span className={validMatch && matchPwd ? "valid" : "hide"}>
+            <FontAwesomeIcon icon={faCheck} />
+          </span>
+          <span className={validMatch || !matchPwd ? "hide" : "invalid"}>
+            <FontAwesomeIcon icon={faTimes} />
+          </span>
+        </label>
+        <input
+          type="password"
+          id="confirm_pwd"
+          required
+          onChange={(e) => setMatchPwd(e.target.value)}
+          aria-invalid={validMatch ? "false" : "true"}
+          aria-describedby="confirmnote"
+          onFocus={() => setMatchFocus(true)}
+          onBlur={() => setMatchFocus(false)}
+        />
+        <p
+          id="confirmnote"
+          className={matchFocus && !validMatch ? "instructions" : "offscreen"}
+        >
+          <FontAwesomeIcon icon={faInfoCircle} />
+          Must match the password you entered before.
           <br />
         </p>
       </form>
