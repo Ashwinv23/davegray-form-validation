@@ -152,6 +152,10 @@ const Register = () => {
           Must match the password you entered before.
           <br />
         </p>
+
+        <button disabled={validName && validPwd && validMatch ? false : true}>
+          Submit
+        </button>
       </form>
     </section>
   );
